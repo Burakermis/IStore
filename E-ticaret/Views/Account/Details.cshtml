@@ -1,0 +1,90 @@
+﻿@model E_ticaret.Models.OrderDetailsModel 
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="container">
+    <div class="row">
+        <div cşass="col-md-12">
+            <h2>Sipariş Detay Bilgileri</h2>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-3">Durum</dt>
+                <dd class="col-sm-9">
+                    @if (Model.OrderState == E_ticaret.Entity.EnumOrderState.OnayBekliyor)
+                    {
+                        <span class="badge-warning">Onay bekliyor</span>
+                    }
+                    else if (Model.OrderState == E_ticaret.Entity.EnumOrderState.Onaylandı)
+                    {
+                        <span class="badge-success">Sipariş onaylandı</span>
+                    }
+                    else
+                    {
+                        <span class="badge-primary">Kargoya verildi</span>
+                    }
+                </dd>
+
+                <dt class="col-sm-3">Sipariş Numarası</dt>
+                <dd class="col-sm-9">@Model.OrderNumber</dd>
+
+                <dt class="col-sm-3">Tutar</dt>
+                <dd class="col-sm-9">
+                    @Model.Total
+                    <i class="fa fa-try" aria-hidden="true"></i>
+                </dd>
+
+                <dt class="col-sm-3">Sipariş Tarihi</dt>
+                <dd class="col-sm-9">@Model.OrderDate.ToShortDateString()</dd>
+
+                <dt class="col-sm-3">Adres</dt>
+                <dd class="col-sm-9">
+                    @Model.AdresBasligi
+                    <hr />
+                    @Model.Adres
+                    <br />
+                    @Model.Sehir - @Model.Semt - @Model.Mahalle
+                    <br />
+                    @Model.PostaKodu
+                </dd>
+                <dt class="col-sm-3">Ürünler</dt>
+                <dd class="col-sm-9">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Ürün İsmi</th>
+                                <th>Adet</th>
+                                <th>Fiyat</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.OrderLines)
+                            {
+                                <tr>
+                                    <td>
+                                        <img src="~/Upload/@item.Image" width="60" />
+                                    </td>
+                                    <td>
+                                        @item.ProductName
+                                    </td>
+                                    <td>
+                                        @item.Quantity
+                                    </td>
+                                    <td>
+                                        @item.Price
+                                        <i class="fa fa-try" aria-hidden="true"></i>
+                                    </td>
+                                    <td>
+                                        <a href="/Home/Details/@item.ProductId" class="btn btn-primary btn-sm" target="_blank">Ürün detayı</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </dd>
+            </dl>
+        </div>
+    </div>
+</div>

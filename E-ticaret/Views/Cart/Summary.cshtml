@@ -1,0 +1,16 @@
+﻿@model E_ticaret.Models.Cart
+
+<style>
+    #cart{
+        color:white;
+    }
+</style>
+<ul class="navbar-nav my-2 my-lg-0">
+
+        <li id="cart" class="nav-item">
+            <a href="/Cart" class="text-white">Sepetim</a>
+            <i class="fa fa-cart-plus" aria-hidden="true"></i>
+            (@Model.CartLines.Count)
+        </li>
+
+</ul>

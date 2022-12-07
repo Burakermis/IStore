@@ -1,0 +1,38 @@
+﻿@model IEnumerable<E_ticaret.Entity.Category>
+@{ 
+    var selectedCategory = Url.RequestContext.RouteData.Values["id"];
+}
+
+<ul class="list-group">
+    <li class="list-group">
+        <a href="/Home/List" class="list-group-item">
+            Tüm Kategoriler
+        </a>
+    </li>
+    @foreach (var item in Model)
+    {
+        if (selectedCategory != null)
+        {
+            if (item.Id == int.Parse(selectedCategory.ToString()))
+            {
+                //Seçilen kategori ile route id'si birbirine eşit.
+                    <a href="/Home/List/@item.Id" class="list-group-item active">
+                        @item.Name
+                    </a>
+            }
+            else
+            {
+                    <a href="/Home/List/@item.Id" class="list-group-item">
+                        @item.Name
+                    </a>
+            }
+        }
+        else
+        {
+                <a href="/Home/List/@item.Id" class="list-group-item">
+                    @item.Name
+                </a>
+        }
+
+    }
+</ul>

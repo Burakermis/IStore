@@ -1,0 +1,54 @@
+﻿@model IEnumerable<E_ticaret.Models.AdminOrderModel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container pb-5">
+    <h2>Siparişler</h2>
+    <hr/>
+
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Sipariş Numarası</th>
+                <th>Sipariş Tarihi</th>
+                <th>Sipariş Durumu</th>
+                <th>Ürün adeti</th>
+                <th>Tutar</th>
+                <td></td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var item in Model)
+            {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.OrderNumber</td>
+                <td>@item.OrderDate</td>
+                <td>
+                    @if (item.OrderState == E_ticaret.Entity.EnumOrderState.OnayBekliyor)
+                    {
+                        <span class="badge-warning">Onay bekliyor</span>
+                    }
+                    else if (item.OrderState == E_ticaret.Entity.EnumOrderState.Onaylandı)
+                    {
+                        <span class="badge-success">Sipariş onaylandı</span>
+                    }
+                    else
+                    {
+                        <span class="badge-primary">Kargoya verildi</span>
+                    }
+                </td>
+                <td>@item.Count</td>
+                <td>@item.Total</td>
+                <td>
+                    @Html.ActionLink("Detay", "Details", new { id = @item.Id }, new {@class="btn btn-primary btn-sm"})
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

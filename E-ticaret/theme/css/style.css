@@ -1,0 +1,67 @@
+.jumbotron
+{
+    background-image: :url("../img/bg.jpg");
+    background-size: cover;
+    height: 100&;
+}
+/* Sticky footer styles
+-------------------------------------------------- */
+.card-title{
+    font-size: 18px;
+    font-weight:400;
+    line-height: 1.35em;
+    height: 34px;
+}
+
+.card-text {
+    font-size: 14px;
+}
+
+.description{
+    font-size:!2px;
+    height:40px;
+}
+
+.product-price{
+    font-weight:700;
+    font-size:20px;
+}
+
+#product-price {
+    font-size: 28px;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  line-height: 60px; /* Vertically center the text there */
+  background-color: #f5f5f5;
+}
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+body > .container {
+  padding: 60px 15px 0;
+}
+
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+code {
+  font-size: 80%;
+}

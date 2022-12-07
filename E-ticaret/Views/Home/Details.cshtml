@@ -1,0 +1,99 @@
+﻿@using E_ticaret.Entity;
+@model Product
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div id="product-details" class="container pb-5">
+    <div class="row">
+        <div class="col-md-6">
+            <img src="/Upload/@Model.Image" class="img-fluid rounded">
+        </div>
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>@Model.Name</h1>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-12">
+                    @if (Model.Stock>0)
+                    {
+                        <span class="badge badge-primary">Stokta</span>
+                    }
+                    else if(Model.Stock==0)
+                    {
+                        <span class="badge badge-danger">Stokta Yok</span>
+                    }
+                    <span class="product-number">#232265656</span>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-12">
+                    <div id="description">
+                        @Model.Description
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-12">
+                    <h4 id="product-price">
+                    @Model.Price
+                        <i class="fa fa-try" aria-hidden="true"></i>
+                    </h4>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-12">
+                    @using (Html.BeginForm("AddToCart", "Cart"))
+                    {
+                        @Html.HiddenFor(i => i.Id)
+                        if (Model.Stock > 0)
+                        {
+                            <button type="submit" class="btn btn-success">
+                                <i class="fa fa-cart-plus" aria-hidden="true"></i>
+                                Sepete ekle
+                            </button>
+                        }
+                        else
+                        {
+                            <button type="button" class="btn btn-secondary">
+                                Ürün Tükendi
+                            </button>
+                        }
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-12">
+            <div class="bd-example bd-example-tabs">
+                <ul class="nav nav-tabs mb-3" id="pills-tab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active show" id="pills-description-tab" data-toggle="pill" href="#pills-description" role="tab" aria-controls="pills-description" aria-selected="true">Açıklama</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="pills-payment-tab" data-toggle="pill" href="#pills-payment" role="tab" aria-controls="pills-payment" aria-selected="false">Ödeme Yöntemleri</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="pills-comment-tab" data-toggle="pill" href="#pills-comment" role="tab" aria-controls="pills-comment" aria-selected="false">Yorum</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade active show" id="pills-description" role="tabpanel" aria-labelledby="pills-description-tab">
+                        <p>@Model.Description</p>
+                    </div>
+                    <div class="tab-pane fade" id="pills-payment" role="tabpanel" aria-labelledby="pills-payment-tab">
+                        <p></p>
+                    </div>
+                    <div class="tab-pane fade" id="pills-comment" role="tabpanel" aria-labelledby="pills-comment-tab">
+                        <p>Yorumlar...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
