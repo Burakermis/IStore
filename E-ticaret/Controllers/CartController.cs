@@ -21,9 +21,9 @@ namespace E_ticaret.Controllers
         public ActionResult AddToCart(int? Id)
         {
             var product = db.Products.FirstOrDefault(i => i.Id == Id);
-            if(product != null)
+            if (product != null)
             {
-                GetCart().AddProduct(product,1);
+                GetCart().AddProduct(product, 1);
             }
             return RedirectToAction("Index");
         }
@@ -41,9 +41,9 @@ namespace E_ticaret.Controllers
         public Cart GetCart()
         {
             var cart = (Cart)Session["Cart"];
-            if(cart == null)
+            if (cart == null)
             {
-                cart=new Cart();
+                cart = new Cart();
                 Session["Cart"] = cart;
             }
             return cart;
@@ -56,9 +56,13 @@ namespace E_ticaret.Controllers
 
 
         [Authorize]
-        public ActionResult Chekcpayment()
+        [HttpPost]
+        public ActionResult Checkpayment()
         {
-            return RedirectToAction("Success");
+            var cart = GetCart();
+            cart.Clear(); // Cart'ı(sepeti) sıfırla)
+            return View("Success");
+
         }
 
         [Authorize]
@@ -71,7 +75,7 @@ namespace E_ticaret.Controllers
         [Authorize]
         public ActionResult Checkout(ShippingDetails entity)
         {
-            var cart=GetCart();
+            var cart = GetCart();
 
             if (cart.CartLines.Count == 0)
             {
@@ -81,11 +85,9 @@ namespace E_ticaret.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    // Siparişi veritabanına kaydet
-                    // Cart'ı sıfırla
-                    //SaveOrder(cart, entity);
-                    cart.Clear();
-                    return RedirectToAction("Checkpayment");
+                    // Siparişi veritabanına kaydet                   
+                    //SaveOrder(cart, entity);                    
+                    return View("Checkpayment");
                 }
                 else
                 {
@@ -98,27 +100,27 @@ namespace E_ticaret.Controllers
         private void SaveOrder(Cart cart, ShippingDetails entity)
         {
             var order = new Order();
-            order.OrderNumber=(new Random()).Next(111111,999999).ToString();
+            order.OrderNumber = (new Random()).Next(111111, 999999).ToString();
             order.Total = cart.Total();
-            order.OrderDate=DateTime.Now;
+            order.OrderDate = DateTime.Now;
             order.OrderState = EnumOrderState.OnayBekliyor;
 
-            order.Username=User.Identity.Name;
-            order.FullName=entity.FullName;
-            order.AdresBasligi=entity.AdresBasligi;
-            order.Adres=entity.Adres;
-            order.Sehir=entity.Sehir;  
-            order.Semt=entity.Semt;
-            order.Mahalle=entity.Mahalle;
-            order.PostaKodu=entity.PostaKodu;
+            order.Username = User.Identity.Name;
+            order.FullName = entity.FullName;
+            order.AdresBasligi = entity.AdresBasligi;
+            order.Adres = entity.Adres;
+            order.Sehir = entity.Sehir;
+            order.Semt = entity.Semt;
+            order.Mahalle = entity.Mahalle;
+            order.PostaKodu = entity.PostaKodu;
 
             order.OrderLines = new List<OrderLine>();
             foreach (var pr in cart.CartLines)
             {
-                var orderline=new OrderLine();
-                orderline.Quantity=pr.Quantity;
-                orderline.Price=pr.Quantity * pr.Product.Price;
-                orderline.ProductId=pr.Product.Id;
+                var orderline = new OrderLine();
+                orderline.Quantity = pr.Quantity;
+                orderline.Price = pr.Quantity * pr.Product.Price;
+                orderline.ProductId = pr.Product.Id;
 
                 order.OrderLines.Add(orderline);
             }

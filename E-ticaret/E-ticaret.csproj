@@ -166,7 +166,7 @@
     <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\Login.cs" />
     <Compile Include="Models\OrderDetailsModel.cs" />
-    <Compile Include="Models\PaymentDetails.cs" />
+    <Compile Include="Models\PaymentDetail.cs" />
     <Compile Include="Models\ProductModel.cs" />
     <Compile Include="Models\Register.cs" />
     <Compile Include="Models\ShippingDetails.cs" />
