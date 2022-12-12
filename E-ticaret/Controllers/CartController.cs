@@ -16,7 +16,9 @@ namespace E_ticaret.Controllers
         {
             return View(GetCart());
         }
-        public ActionResult AddToCart(int Id)
+
+        [Authorize]
+        public ActionResult AddToCart(int? Id)
         {
             var product = db.Products.FirstOrDefault(i => i.Id == Id);
             if(product != null)
@@ -52,13 +54,21 @@ namespace E_ticaret.Controllers
             return PartialView(GetCart());
         }
 
-        
+
+        [Authorize]
+        public ActionResult Chekcpayment()
+        {
+            return RedirectToAction("Success");
+        }
+
+        [Authorize]
         public ActionResult Checkout()
         {
             return View(new ShippingDetails());
         }
 
         [HttpPost]
+        [Authorize]
         public ActionResult Checkout(ShippingDetails entity)
         {
             var cart=GetCart();
@@ -73,9 +83,9 @@ namespace E_ticaret.Controllers
                 {
                     // Siparişi veritabanına kaydet
                     // Cart'ı sıfırla
-                    SaveOrder(cart, entity);
+                    //SaveOrder(cart, entity);
                     cart.Clear();
-                    return View("Completed");
+                    return RedirectToAction("Checkpayment");
                 }
                 else
                 {

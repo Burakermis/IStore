@@ -9,15 +9,14 @@ namespace E_ticaret.Models
     public class PaymentDetails
     {
         [Required(ErrorMessage = "Kart numarası giriniz!")]
-        //[StringLength(maximumLength: 16, ErrorMessage = "En fazla 20 karakter girebilirsiniz!"),]
         [RegularExpression(@"(.{10})")]
         public string CartNumber { get; set; }
 
-        [Required(ErrorMessage = "Son kullanma tarihi için ay giriniz!")]
-        public string CartMonth { get; set; }
+        [Required(ErrorMessage = "Son kullanma tarihi giriniz!")]
+        public string CartExperionDate { get; set; }
 
-        [Required(ErrorMessage = "Son kullanma tarihi için yıl giriniz!")]
-        public string CartYear { get; set; }
+        [Required(ErrorMessage = "Güvenlik kodunu giriniz!")]
+        public string CV2 { get; set; }
 
     }
 }

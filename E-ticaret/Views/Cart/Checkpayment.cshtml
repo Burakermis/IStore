@@ -1,0 +1,71 @@
+﻿@model E_ticaret.Models.PaymentDetails
+@{
+    ViewBag.Title = "Checkpayment";
+}
+<style>
+    .field-validation-error {
+        color: #f00;
+    }
+
+    .field-validation-valid {
+        display: #f00;
+    }
+
+    .field-validation-error {
+        border: 1px solid #f00;
+        background-color: #fee;
+    }
+
+    .validation-summary-errors {
+        font-weight: bold;
+        color: #f00;
+    }
+
+    .validation-summary-valid {
+        display: none;
+    }
+</style>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Ödeme Bilgileriniz</h2>
+            <hr />
+            @using (Html.BeginForm("Checkpayment", "Cart", FormMethod.Post))
+            {
+                @Html.ValidationSummary()
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Kart Numarası</label>
+                    <div class="col-sm-10">
+                        <i class="fa fa-credit-card" aria-hidden="true"></i>
+                        @Html.TextBoxFor(x => x.CartNumber, new { @class = "form control" })
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Son Kullanma Tarihi</label>
+                    <div class="col-sm-10">
+                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                        @Html.TextBoxFor(x => x.CartExperionDate, new { @class = "form control" })
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">CVC</label>
+                    <div class="col-sm-10">
+                        @Html.TextBoxFor(x => x.CV2, new { @class = "form control" }) <!-- HTML helpers diye adlandırılıyor-->
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label"></label>
+                    <div class="col-sm-10">
+                        <button type="submit" class="btn btn-success">Sipariş ver</button>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
