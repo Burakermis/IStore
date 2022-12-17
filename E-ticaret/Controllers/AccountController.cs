@@ -65,7 +65,7 @@ namespace E_ticaret.Controllers
                     {
                         ProductId= a.ProductId,
                         ProductName=a.Product.Name,
-                        Image=a.Product.Image,
+                        Image=a.Product.Image ?? "nophoto.jpg",
                         Quantity=a.Quantity,
                         Price=a.Price
                     }).ToList()

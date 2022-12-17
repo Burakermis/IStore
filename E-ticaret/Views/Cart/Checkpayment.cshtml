@@ -2,6 +2,8 @@
 @{
     ViewBag.Title = "Checkpayment";
 }
+@Html.Raw(ViewBag.Iyzico)
+
 <style>
     .field-validation-error {
         color: #f00;
@@ -33,25 +35,39 @@
             <hr />
             @using (Html.BeginForm("Checkpayment", "Cart", FormMethod.Post))
             {
-                @Html.ValidationSummary()
+                @Html.AntiForgeryToken()
+                //@Html.ValidationSummary()
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Kart Sahibi İsim</label>
+                    <div class="col-sm-10">
+                        @Html.TextBoxFor(x => x.HolderName, new { @placeholder = "Kart Sahibi" })
+                    </div>
+                </div>
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Kart Numarası</label>
                     <div class="col-sm-10">
                         <i class="fa fa-credit-card" aria-hidden="true"></i>
-                        @Html.TextBoxFor(x => x.CartNumber, new { @class = "form control" })
+                        @Html.TextBoxFor(x => x.CartNumber, new { @placeholder = "Kart No" })
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Son Kullanma Tarihi</label>
                     <div class="col-sm-10">
                         <i class="fa fa-calendar" aria-hidden="true"></i>
-                        @Html.TextBoxFor(x => x.CartExperionDate, new { @class = "form control" })
+                        @Html.TextBoxFor(x => x.ExpireMonth, new { @placeholder = "Ay[AA]" })
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Son Kullanma Tarihi</label>
+                    <div class="col-sm-10">
+                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                        @Html.TextBoxFor(x => x.ExpireYear, new { @placeholder = "Yıl[YY]" })
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">CVC</label>
                     <div class="col-sm-10">
-                        @Html.TextBoxFor(x => x.CV2, new { @class = "form control" }) <!-- HTML helpers diye adlandırılıyor-->
+                        @Html.TextBoxFor(x => x.CV2, new { @placeholder = "Güvenlik Kodu" }) <!-- HTML helpers diye adlandırılıyor-->
                     </div>
                 </div>
                 <div class="form-group row">
@@ -68,4 +84,3 @@
 <script src="~/Scripts/jquery-3.4.1.min.js"></script>
 <script src="~/Scripts/jquery.validate.min.js"></script>
 <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
-

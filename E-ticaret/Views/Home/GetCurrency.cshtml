@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "GetCurrency";
+    List<E_ticaret.Models.Currency> dovizler = ViewBag.dovizler as List<E_ticaret.Models.Currency>; // as ile model i seçiyoruz ki aşağıda foreach işleminde Unit, Isim, CurrenyName gibi değerleri intellisense özelliği ile görebilelim.
+}
+<div class="container" pb-5>
+    <h2>Döviz Kurları</h2>
+    <table class="table-bordered" width="100%">
+        <thead>
+            <tr>
+                <th>Döviz Kodu<br />Currency Code</th>
+                <th>Birim<br />Unit</th>
+                <th>Döviz Cinsi<br />Currency</th>
+                <th>Döviz Alış<br />Forex Buying</th>
+                <th>Döviz Satış<br />Forex Selling</th>
+                <th>Efektif Alış<br />Banknote Buying</th>
+                <th>Efektif Satış<br />Banknote Selling</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var d in dovizler)
+            {
+
+                if (d.CurrencyCode != "XDR")
+                {
+
+                    string img = "http://www.tcmb.gov.tr/kurlar/kurlar_tr_dosyalar/images/" + d.CurrencyCode + ".gif";
+
+                    <tr>
+                        <td>
+                            <img src="@img" />
+                            @d.CurrencyCode / TRY
+                        </td>
+                        <td>@d.Unit</td>
+                        <td>@d.Isim</td>
+                        @*<td>@d.CurrencyName</td>*@
+                        <td>@d.ForexBuying</td>
+                        <td>@d.ForexSelling</td>
+                        <td>@d.BanknoteBuying</td>
+                        <td>@d.BanknoteSelling</td>
+                        @*<td>@d.CrossRateUSD</td>
+                            <td>@d.CrossRateOther</td>*@
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>

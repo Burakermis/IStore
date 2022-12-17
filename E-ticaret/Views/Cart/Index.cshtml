@@ -65,7 +65,15 @@
                         </tr>
                     </tfoot>
                 </table>
-
+                <div class="text-center">
+                    @using (Html.BeginForm("CartClear", "Cart"))
+                    {
+                        <button type="submit" class="btn btn-danger">
+                            <i class="fa fa-trash-o" aria-hidden="true"></i>
+                            Sepeti Temizle
+                        </button>
+                    }
+                </div>           
                 <div class="text-center">
                     <a href="/Home/List" class="btn btn-primary">
                         <i class="fa fa-angle-left" aria-hidden="true"></i>

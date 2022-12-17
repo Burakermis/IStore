@@ -33,13 +33,18 @@ namespace E_ticaret.Entity
         public string Image { get; set; }
 
         [DisplayName("Yönetici Onaylı")]
+        [Required(ErrorMessage = "{0} alanı gereklidir.")]
         public bool IsApproved { get; set; }
 
         [DisplayName("Anasayfada Görünürlük")]
+        [Required(ErrorMessage = "{0} alanı gereklidir.")]
         public bool IsHome { get; set; }
 
         [DisplayName("Kategori Türü")]
+        [Required(ErrorMessage = "{0} alanı gereklidir.")]
         public int CategoryId { get; set; }//foreign key(connect to category ıd)
+
+        [DisplayName("Kategori Türü")]
         public Category Category { get; set; }
     }
 }

@@ -6,12 +6,16 @@
     {
         <div class="col-md-4 mb-3">
             <div class="card mt-3">
-                <img class="card-img-top" src="/Upload/@product.Image" alt="@product.Name">
+                <img class="card-img-top image" src="/Upload/@product.Image" alt="@product.Name">
                 <div class="card-body">
                     <h5 class="card-title">
-                        <a href="/Home/Details/@product.Id">@product.Name</a>
+                        <a href="/Home/Details/@product.Id">
+                        @product.Name
+                        </a>
                     </h5>
-                    <p class="card-text pt-1 description">@product.Description</p>
+                    <p class="card-text pt-2 description">
+                        @product.Description
+                    </p>
                 </div>
                 <div class="card-footer">
                     <small class="text-muted product-price">
