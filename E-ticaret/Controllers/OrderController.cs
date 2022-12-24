@@ -27,6 +27,26 @@ namespace E_ticaret.Controllers
 
             return View(orders);
         }
+        [HttpGet]
+        public ActionResult Index(string SearchString)
+        {
+            var orders = db.Orders.Select(i => new AdminOrderModel()
+            {
+                Id = i.Id,
+                OrderNumber = i.OrderNumber,
+                OrderDate = i.OrderDate,
+                OrderState = i.OrderState,
+                Total = i.Total,
+                Count = i.OrderLines.Count,
+            }).OrderByDescending(i => i.OrderDate).ToList();
+
+            if (!String.IsNullOrEmpty(SearchString))
+            {
+                orders = (List<AdminOrderModel>)orders.Where(s => s.OrderNumber.Contains(SearchString)).ToList();
+            }
+
+            return View(orders);
+        }
 
         public ActionResult Details (int id)
         {

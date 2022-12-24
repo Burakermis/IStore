@@ -11,5 +11,6 @@ namespace E_ticaret.Entity
         OnayBekliyor,
         KargoyaVerildi,
         Onaylandı,
+        TeslimEdildi
     }
 }

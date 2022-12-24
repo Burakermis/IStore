@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using E_ticaret.Entity;
 using E_ticaret.Models;
 using System.Xml;
+using E_ticaret.Connector;
 
 namespace E_ticaret.Controllers
 {
@@ -63,24 +64,35 @@ namespace E_ticaret.Controllers
 
             return View(products.ToList()); 
         }
+        
+        [HttpGet]
+        public ActionResult List(string SearchString) //Ürün arama
+        {
+            var products = _context.Products
+                .Where(p => p.IsApproved)
+                .Select(p => new ProductModel()
+                {
+                    Id = p.Id,
+                    Name = p.Name.Length > 50 ? p.Name.Substring(0, 47) + "..." : p.Name,
+                    Description = p.Description.Length > 50 ? p.Description.Substring(0, 47) + "..." : p.Description,
+                    Price = p.Price,
+                    Stock = p.Stock,
+                    Image = p.Image ?? "nophoto.jpg",
+                    CategoryId = p.CategoryId
+                }).AsQueryable();
+
+            if (!String.IsNullOrEmpty(SearchString))
+            {
+                products = products.Where(s => s.Name.Contains(SearchString));
+            }
+
+            return View(products.ToList());
+        }
 
         public PartialViewResult GetCategories()
         {
             return PartialView(_context.Categories.ToList());
         }
-
-        /*
-        public ActionResult SearchProducts(string Search)
-        {
-            var values=from d in _context.Products select d;
-
-            if (!string.IsNullOrEmpty(Search))
-            {
-                values = values.Where(n => n.Name.Contains(Search));
-  
-            }
-            return View(values.ToList());          
-        }*/
 
         [HttpGet]
         public ActionResult GetCurrency()

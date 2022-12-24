@@ -22,6 +22,17 @@ namespace E_ticaret.Controllers
             return View(products.ToList());
         }
 
+        [HttpGet]
+        public ActionResult Index(string SearchString)
+        {
+            var products = db.Products.Include(p => p.Category);
+            if (!String.IsNullOrEmpty(SearchString))
+            {
+                products = products.Where(s => s.Name.Contains(SearchString));
+            }
+            return View(products.ToList());
+        }
+
         // GET: Product/Details/5
         public ActionResult Details(int? id)
         {

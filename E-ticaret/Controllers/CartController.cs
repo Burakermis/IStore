@@ -5,10 +5,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Iyzipay;
-using Iyzipay.Model;
-using Iyzipay.Request;
-using E_ticaret.Helpers;
 using System.Collections.Specialized;
 
 namespace E_ticaret.Controllers

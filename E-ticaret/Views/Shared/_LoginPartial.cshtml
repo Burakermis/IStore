@@ -4,22 +4,26 @@
     @if (Request.IsAuthenticated)
     {
         // kullanıcı adını ve logout linklerini çıkar
-        <li class="nav-item active">
-            <a class="btn btn-outline-light btn-sm" href="/Account">@User.Identity.Name</a>
-        </li>
-        <li class="nav-item active">
-            <a class="btn btn-outline-light btn-sm" href="/Account/Logout">Çıkış Yap</a>
-        </li>
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle btn-sm ml-4" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Hesabım
+            </button>
+            <div class="dropdown-menu ml" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="/Account">Siparişlerim</a>
+                <a class="dropdown-item" href="/Account/Update">Hesap Bilgilerim</a>
+                <a class="dropdown-item" href="/Account/Logout">Çıkış Yap</a>
+            </div>
+        </div>
     }
     else
     {
         // login ve rsgister linkleri çıkar
 
         <li class="nav-item active">
-            <a class="btn btn-outline-light btn-sm" href="/Account/Login">Giriş Yap</a>
+            <a class="btn btn-outline-light btn-sm ml-4" href="/Account/Login">Giriş Yap</a>
         </li>
         <li class="nav-item active">
-            <a class="btn btn-outline-light btn-sm" href="/Account/Register">Kayıt Ol</a>
+            <a class="btn btn-outline-light btn-sm ml-2" href="/Account/Register">Kayıt Ol</a>
         </li>
 
     }

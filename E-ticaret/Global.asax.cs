@@ -17,7 +17,7 @@ namespace E_ticaret
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
-            Database.SetInitializer(new DataInitializer());
+            //Database.SetInitializer(new DataInitializer());
             Database.SetInitializer(new IdentityInitializer());
         }
     }

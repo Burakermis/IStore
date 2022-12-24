@@ -5,17 +5,40 @@
     ViewBag.Title = "Index";
 }
 
-<div class="jumbotron">
-    <div class="container">
-        <h1 class="display-4">Yakında Açılıyoruz</h1>
-        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-        <hr class="my-4">
-        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-        <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img class="d-block" src="https://www.stuff.com.tr/v1/wp-content/uploads/2017/08/okula-donus-apple.jpg" width="100%" height="500" alt="First slide">
+        </div>
+        <div class="carousel-item">
+            <img class="d-block" src="https://cdn.webrazzi.com/uploads/2022/01/has-581.png" width="100%" height="500" alt="Second slide">
+        </div>
+        <div class="carousel-item">
+            <img class="d-block" src="~/theme/img/kreditaksit.jpg" width="100%" height="500" alt="Third slide">
+        </div>
     </div>
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
 </div>
+
+<div>
+    <h2 class="row mt-5 ml-5">
+        Süper Fiyat, Süper Teklif
+        <a class="ml-2 mt-3" style="font-size:15px;" href="~/Home/List">
+            Tümü
+            <i class="fa fa-angle-right" aria-hidden="true"></i>
+        </a>
+    </h2>
+</div>
+
 <div class="container" pb-5>
-    @Html.Partial("_ProductList",Model)
+    @Html.Partial("_ProductList", Model)
 </div>
 
 

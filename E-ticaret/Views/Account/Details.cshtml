@@ -17,11 +17,15 @@
                     }
                     else if (Model.OrderState == E_ticaret.Entity.EnumOrderState.Onaylandı)
                     {
-                        <span class="badge-success">Sipariş onaylandı</span>
+                        <span class="badge-secondary">Sipariş onaylandı</span>
+                    }
+                    else if (Model.OrderState == E_ticaret.Entity.EnumOrderState.KargoyaVerildi)
+                    {
+                        <span class="badge-info">Kargoya verildi</span>
                     }
                     else
                     {
-                        <span class="badge-primary">Kargoya verildi</span>
+                        <span class="badge-success">Teslim edildi</span>
                     }
                 </dd>
 

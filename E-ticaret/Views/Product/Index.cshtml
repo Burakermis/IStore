@@ -9,10 +9,33 @@
 <div class="container" pb-5>
     <h2>Ürün Listesi</h2>
     <hr />
-
     <p>
         @Html.ActionLink("Ürün Ekle", "Create", null, new { @class = "btn btn-success" })
     </p>
+    <div>
+        @using (Html.BeginForm("Index", "Product", FormMethod.Get))
+        {
+            <p>
+                @Html.TextBox("SearchString")
+                <input type="submit" value="Ara" placeholder="Ürün İsmi"/>
+            </p>
+        }
+        @using (Html.BeginForm("Index", "Product", FormMethod.Get))
+        {
+            <p>
+                <input class="btn-primary "type="submit" value="Tüm Liste" />
+            </p>
+        }
+    </div>
+    @if (Model.Count() == 0)
+    {
+        <div class="alert alert-warning" role="alert">
+            <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+            Bu aramada bir ürün bulunamadı.
+        </div>
+    }
+    else
+    {
     <table class="table table-bordered table-striped">
         <tr>
             <th>
@@ -64,25 +87,26 @@
                 <td>
                     @if (item.IsHome)
                     {
-                    <label class="badge badge-success">
-                        <i class="fa fa-check-circle-o" aria-hidden="true"></i>
-                        Evet
-                    </label>
+                        <label class="badge badge-success">
+                            <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+                            Evet
+                        </label>
                     }
                     else
                     {
-                    <label class="bade badge-danger">
-                        <i class="fa fa-window-close-o" aria-hidden="true"></i>
-                        Hayır
-                    </label>
+                        <label class="bade badge-danger">
+                            <i class="fa fa-window-close-o" aria-hidden="true"></i>
+                            Hayır
+                        </label>
                     }
                 </td>
                 <td>
-                    @Html.ActionLink("Güncelle", "Edit", new { id = item.Id }, new { @class = "btn btn-primary btn-sm" })  
+                    @Html.ActionLink("Güncelle", "Edit", new { id = item.Id }, new { @class = "btn btn-primary btn-sm" })
                     @Html.ActionLink("Sil", "Delete", new { id = item.Id }, new { @class = "btn btn-danger btn-sm" })
                 </td>
             </tr>
         }
 
     </table>
+    }
 </div>

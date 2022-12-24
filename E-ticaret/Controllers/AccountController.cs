@@ -164,5 +164,20 @@ namespace E_ticaret.Controllers
             return RedirectToAction("Index","Home");
         }
 
+       [Authorize]
+       [HttpPost]
+       [ValidateAntiForgeryToken]
+       public ActionResult Update() 
+        {
+            /*var userId = this.User.Identity.GetUserId();
+            var user = db.Set<ApplicationUser>().Find(userId);
+            user.UserName = "New value";
+            user.Name = ;
+            user.Surname = ;
+            user.Email = ;*/
+            db.SaveChanges();
+            return View();
+        }
+
     }
 }

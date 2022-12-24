@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "Admin";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container" pb-5>
+    <h1>Admin Paneline Hoşgeldiniz</h1>
+    <hr />
+    <div class="mt-2">
+        <a href="/Product/Index" class="btn btn-secondary">
+            Ürün Düzenleme Paneli
+            <i class="fa fa-cog" aria-hidden="true"></i>
+        </a>
+    </div>
+    <div class="mt-2">
+        <a href="/Category/Index" class="btn btn-secondary">
+            Kategori Düzenleme Paneli
+            <i class="fa fa-cog" aria-hidden="true"></i>
+        </a>
+    </div>
+    <div class="mt-2 mb-5">
+        <a href="/Order/Index" class="btn btn-secondary">
+            Sipariş Düzenleme Paneli
+            <i class="fa fa-cog" aria-hidden="true"></i>
+        </a>
+    </div>
+</div>
