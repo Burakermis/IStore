@@ -3,6 +3,7 @@ using E_ticaret.Identity;
 using E_ticaret.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using System;
 using System.Collections.Generic;
@@ -164,20 +165,33 @@ namespace E_ticaret.Controllers
             return RedirectToAction("Index","Home");
         }
 
+        /*
+        [Authorize]
+        public ActionResult Update()
+        {
+            var userId = this.User.Identity.GetUserId();
+            //var user = db.Set<ApplicationUser>().Find(userId);
+            var user = UserManager.FindById(userId);
+            return View();
+        }
+
+        
        [Authorize]
        [HttpPost]
        [ValidateAntiForgeryToken]
-       public ActionResult Update() 
+       public ActionResult Update(Register model) 
         {
-            /*var userId = this.User.Identity.GetUserId();
-            var user = db.Set<ApplicationUser>().Find(userId);
-            user.UserName = "New value";
-            user.Name = ;
-            user.Surname = ;
-            user.Email = ;*/
+            //var userId = this.User.Identity.GetUserId();
+            //var user = db.Set<ApplicationUser>().Find(userId);
+            var user = UserManager.FindById(model.UserName);         
+            user.UserName = model.UserName;
+            user.Name =model.Name ;
+            user.Surname = model.SurName;
+            user.Email = model.Email;
+            UserManager.Update(user);
             db.SaveChanges();
             return View();
-        }
+        }*/
 
     }
 }
