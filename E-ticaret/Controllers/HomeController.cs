@@ -66,7 +66,7 @@ namespace E_ticaret.Controllers
         }
         
         [HttpGet]
-        public ActionResult List(string SearchString) //Ürün arama
+        public ActionResult SearchProducts(string SearchString) //Ürün arama
         {
             var products = _context.Products
                 .Where(p => p.IsApproved)
@@ -89,6 +89,7 @@ namespace E_ticaret.Controllers
             return View(products.ToList());
         }
 
+        [HttpGet]
         public PartialViewResult GetCategories()
         {
             return PartialView(_context.Categories.ToList());

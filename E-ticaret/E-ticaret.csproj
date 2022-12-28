@@ -224,6 +224,7 @@
     <Content Include="Views\Home\GetCurrency.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Account\Update.cshtml" />
+    <Content Include="Views\Home\SearchProducts.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
