@@ -210,7 +210,7 @@ namespace E_ticaret.Controllers
                 if (ModelState.IsValid)
                 {
                     // Siparişi veritabanına kaydet                   
-                    //SaveOrder(cart, entity);  //veritabanına sepeti kaydediyor                 
+                    SaveOrder(cart, entity);  //veritabanına sepeti kaydediyor                 
                     return View("Checkpayment");
                 }
                 else
