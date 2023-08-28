@@ -165,12 +165,11 @@ namespace E_ticaret.Controllers
             return RedirectToAction("Index","Home");
         }
 
-        /*
+        
         [Authorize]
         public ActionResult Update()
         {
             var userId = this.User.Identity.GetUserId();
-            //var user = db.Set<ApplicationUser>().Find(userId);
             var user = UserManager.FindById(userId);
             return View();
         }
@@ -181,9 +180,7 @@ namespace E_ticaret.Controllers
        [ValidateAntiForgeryToken]
        public ActionResult Update(Register model) 
         {
-            //var userId = this.User.Identity.GetUserId();
-            //var user = db.Set<ApplicationUser>().Find(userId);
-            var user = UserManager.FindById(model.UserName);         
+            var user = UserManager.FindByEmail(model.Email);
             user.UserName = model.UserName;
             user.Name =model.Name ;
             user.Surname = model.SurName;
@@ -191,7 +188,7 @@ namespace E_ticaret.Controllers
             UserManager.Update(user);
             db.SaveChanges();
             return View();
-        }*/
+        }
 
     }
 }

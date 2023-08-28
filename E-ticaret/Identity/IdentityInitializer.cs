@@ -42,7 +42,7 @@ namespace E_ticaret.Identity
             }
 
             // Admin Bilgileri
-            if (!context.Users.Any(i => i.Name == "burakermis"))
+            /*if (!context.Users.Any(i => i.Name == "burakermis"))
             {
                 var store = new UserStore<ApplicationUser>(context);
                 var manager = new UserManager<ApplicationUser>(store);
@@ -51,10 +51,10 @@ namespace E_ticaret.Identity
                 manager.Create(user,"1234567");
                 manager.AddToRole(user.Id, "admin");
                 manager.AddToRole(user.Id, "user");
-            }
+            }*/
 
             // User Bilgileri
-            if (!context.Users.Any(i => i.Name == "hasanermis"))
+            /*if (!context.Users.Any(i => i.Name == "hasanermis"))
             {
                 var store = new UserStore<ApplicationUser>(context);
                 var manager = new UserManager<ApplicationUser>(store);
@@ -62,7 +62,7 @@ namespace E_ticaret.Identity
 
                 manager.Create(user, "1234567");
                 manager.AddToRole(user.Id, "user");
-            }
+            }*/
 
             base.Seed(context);
         }
