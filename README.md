@@ -1,106 +1,78 @@
-🛒 E-Commerce Web Application (IStore)
+# 🛒 IStore - E-Commerce Web Application
 
-A modern e-commerce web application that delivers a complete online shopping experience.
-Users can browse products, manage their shopping carts, and place orders, while administrators can manage products, categories, and orders through role-based authorization.
+IStore, modern bir online alışveriş deneyimi sunmak için geliştirilmiş, kapsamlı bir e-ticaret web uygulamasıdır. Kullanıcılar için akıcı bir alışveriş süreci, yöneticiler için ise gelişmiş bir yönetim paneli sunar.
 
-🚀 Features
-👤 User Features
+## 🚀 Özellikler
 
-User registration and authentication
+### 👤 Kullanıcı Özellikleri
+* **Kimlik Doğrulama:** Güvenli kayıt olma ve giriş yapma süreçleri.
+* **Ürün Keşfi:** Detaylı ürün bilgileri ve kategori bazlı listeleme.
+* **Sepet Yönetimi:** Ürün ekleme, adet güncelleme ve sepetten çıkarma.
+* **Sipariş Süreci:** Hızlı sipariş oluşturma ve geçmiş siparişleri görüntüleme.
+* **Rol Erişimi:** Kullanıcı yetkilerine göre dinamik içerik.
 
-Browse products with detailed information
+### 🛠️ Admin (Yönetim) Özellikleri
+* **Ürün Yönetimi:** Ürün ekleme, silme ve güncelleme (CRUD).
+* **Kategori Yönetimi:** Ürün kategorilerini organize etme.
+* **Sipariş Yönetimi:** Gelen siparişleri görüntüleme ve durum güncelleme.
+* **Kullanıcı Yönetimi:** Kullanıcı rolleri ve hesap yönetimi.
 
-Add, update, or remove items from the shopping cart
+---
 
-Place orders and view order history
+## 🔐 Güvenlik ve Yetkilendirme
 
-Role-based access control
+Uygulama, güvenliği ön planda tutan **ASP.NET Identity** altyapısını kullanır:
 
-🛠️ Admin Features
+* **Cookie-Based Authentication:** Güvenli oturum yönetimi.
+* **Role-Based Access Control (RBAC):** `User` ve `Admin` rolleriyle yetki sınırlandırması.
+* **Protected Routes:** Admin paneli ve kritik fonksiyonlar yalnızca yetkili kullanıcılara açıktır.
 
-Admin authentication and authorization
+---
 
-Product and category management (CRUD)
+## 🧱 Uygulama Mimarisi
 
-Order management and status updates
+Proje, **Separation of Concerns (Sorumlulukların Ayrılması)** prensibine uygun olarak inşa edilmiştir:
 
-User management and role assignment
+* **Pattern:** MVC (Model-View-Controller) tasarım deseni.
+* **Yapı:** Bakımı kolay, modüler ve ölçeklenebilir kod mimarisi.
+* **İş Akışı:** Kullanıcı talepleri Controller üzerinden işlenerek ilgili Model ve View katmanlarına aktarılır.
 
-🔐 Authentication & Authorization
+---
 
-The application implements secure authentication and authorization using built-in ASP.NET mechanisms:
+## 🧰 Teknoloji Yığını
 
-Secure login and registration
+| Bileşen | Teknoloji |
+| :--- | :--- |
+| **Backend** | C# / ASP.NET MVC |
+| **Frontend** | HTML5, CSS3, JavaScript |
+| **Veritabanı** | SQL Server |
+| **ORM** | Entity Framework |
+| **Kimlik Doğrulama** | ASP.NET Identity |
 
-Role-based access control (User / Admin)
+---
 
-Restricted access to admin-only functionalities
+## ⚙️ Kurulum ve Çalıştırma
 
-🧱 Application Architecture
+### Gereksinimler
+* Visual Studio 2022 veya üzeri
+* .NET Framework / .NET SDK
+* SQL Server (LocalDB veya Express)
 
-The project follows a clean and modular architecture:
+### Adımlar
 
-Separation of concerns (Controllers, Models, Views)
+1.  **Depoyu Klonlayın:**
+    ```bash
+    git clone [https://github.com/Burakermis/IStore.git](https://github.com/Burakermis/IStore.git)
+    ```
 
-Maintainable and scalable structure
+2.  **Projeyi Yapılandırın:**
+    * `.sln` dosyasını Visual Studio ile açın.
+    * NuGet paketlerini geri yükleyin.
 
-MVC design pattern
+3.  **Veritabanı Ayarları:**
+    * `Web.config` veya `appsettings.json` dosyasındaki **ConnectionString** bölümünü kendi SQL Server bilgilerinize göre güncelleyin.
+    * Gerekiyorsa `Update-Database` komutu ile tabloları oluşturun.
 
-The overall request flow and system interactions are illustrated in the diagram above.
-
-🧰 Tech Stack
-
-Backend: C# / ASP.NET MVC
-
-Frontend: HTML5, CSS3, JavaScript
-
-Database: SQL Server
-
-Authentication: ASP.NET Identity (Cookie-based authentication)
-
-ORM: Entity Framework
-
-⚙️ Setup & Installation
-Prerequisites
-
-Visual Studio 2022 or newer
-
-.NET Framework or .NET SDK (depending on project version)
-
-SQL Server (LocalDB or full version)
-
-Clone the Repository
-
-git clone https://github.com/Burakermis/IStore.git
-
-Open the Project
-
-Open the .sln file using Visual Studio
-
-Restore NuGet packages if prompted
-
-Configure Database
-
-Update the connection string in Web.config or appsettings.json
-
-Ensure SQL Server is running
-
-Create the database and apply migrations if required
-
-Run the Application
-
-Press F5 or click Run in Visual Studio
-
-The application will be available at
-https://localhost:xxxx
-
-🤝 Contributing
-
-Contributions, issues, and feature requests are welcome.
-Feel free to fork the repository and submit a pull request.
-
-📄 License
-
-This project is licensed under the MIT License.
-
-⭐ If you like this project, don’t forget to star the repository!
+4.  **Çalıştırın:**
+    * `F5` tuşuna basarak uygulamayı yerel sunucuda başlatın.
+    * Tarayıcıda: `https://localhost:xxxx`
