@@ -1,89 +1,106 @@
-# 🛒 E-Commerce Web Application
+🛒 E-Commerce Web Application (IStore)
 
-A modern e-commerce web application that delivers a complete online shopping experience. Users can browse products, manage their shopping carts, and securely place orders, while administrators can manage products, categories, and orders through dedicated authorization roles.
+A modern e-commerce web application that delivers a complete online shopping experience.
+Users can browse products, manage their shopping carts, and place orders, while administrators can manage products, categories, and orders through role-based authorization.
 
-![Application Flow](https://github.com/user-attachments/assets/66e4cd00-859d-49b0-b8da-0033a9d60a6a)
+🚀 Features
+👤 User Features
 
----
+User registration and authentication
 
-## 🚀 Features
+Browse products with detailed information
 
-### 👤 User Features
+Add, update, or remove items from the shopping cart
 
-* User registration and secure authentication
-* Browse products with detailed information
-* Add, update, or remove items from the shopping cart
-* Place orders and view order history
-* Role-based access control
+Place orders and view order history
 
-### 🛠️ Admin Features
+Role-based access control
 
-* Admin authentication and authorization
-* Product and category management (CRUD)
-* Order management and status updates
-* User management and role assignment
+🛠️ Admin Features
 
----
+Admin authentication and authorization
 
-## 🔐 Authentication & Authorization
+Product and category management (CRUD)
 
-The application implements robust authentication and authorization mechanisms:
+Order management and status updates
 
-* Secure login and registration
-* Role-based access control (User / Admin)
-* Protected endpoints for sensitive operations
+User management and role assignment
 
----
+🔐 Authentication & Authorization
 
-## 🧱 Application Architecture
+The application implements secure authentication and authorization using built-in ASP.NET mechanisms:
 
-The system follows a clean and modular architecture:
+Secure login and registration
 
-* Separation of concerns between layers
-* Scalable and maintainable project structure
-* RESTful API design
+Role-based access control (User / Admin)
+
+Restricted access to admin-only functionalities
+
+🧱 Application Architecture
+
+The project follows a clean and modular architecture:
+
+Separation of concerns (Controllers, Models, Views)
+
+Maintainable and scalable structure
+
+MVC design pattern
 
 The overall request flow and system interactions are illustrated in the diagram above.
 
----
+🧰 Tech Stack
 
-## 🧰 Tech Stack
+Backend: C# / ASP.NET MVC
 
-* **Backend:** C# / ASP.NET MVC  
-* **Frontend:** HTML5, CSS3, JavaScript  
-* **Database:** SQL Server  
-* **Authentication:** ASP.NET Identity (Cookie-based authentication)  
-* **ORM:** Entity Framework  
+Frontend: HTML5, CSS3, JavaScript
 
-## ⚙️ Setup & Installation
+Database: SQL Server
 
-```bash
-# Clone the repository
-git clone https://github.com/your-username/your-repo-name.git
+Authentication: ASP.NET Identity (Cookie-based authentication)
 
-# Backend
-cd backend
-./mvnw spring-boot:run
+ORM: Entity Framework
 
-# Frontend
-cd frontend
-npm install
-npm run dev
-```
+⚙️ Setup & Installation
+Prerequisites
 
----
+Visual Studio 2022 or newer
 
-## 🤝 Contributing
+.NET Framework or .NET SDK (depending on project version)
+
+SQL Server (LocalDB or full version)
+
+Clone the Repository
+
+git clone https://github.com/Burakermis/IStore.git
+
+Open the Project
+
+Open the .sln file using Visual Studio
+
+Restore NuGet packages if prompted
+
+Configure Database
+
+Update the connection string in Web.config or appsettings.json
+
+Ensure SQL Server is running
+
+Create the database and apply migrations if required
+
+Run the Application
+
+Press F5 or click Run in Visual Studio
+
+The application will be available at
+https://localhost:xxxx
+
+🤝 Contributing
 
 Contributions, issues, and feature requests are welcome.
 Feel free to fork the repository and submit a pull request.
 
----
+📄 License
 
-## 📄 License
+This project is licensed under the MIT License.
 
-This project is licensed under the **MIT License**.
-
----
-
-> If you like this project, don’t forget to ⭐ the repository!
+⭐ If you like this project, don’t forget to star the repository!
