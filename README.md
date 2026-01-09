@@ -1,6 +1,7 @@
 # 🛒 IStore - E-Commerce Web Application
 
 IStore, modern bir online alışveriş deneyimi sunmak için geliştirilmiş, kapsamlı bir e-ticaret web uygulamasıdır. Kullanıcılar için akıcı bir alışveriş süreci, yöneticiler için ise gelişmiş bir yönetim paneli sunar.
+![flow](https://github.com/user-attachments/assets/297e9281-3852-4956-a13a-dce2f0eead9c)
 
 ## 🚀 Özellikler
 
