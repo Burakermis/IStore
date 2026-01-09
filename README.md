@@ -1,0 +1,2 @@
+This project is an e-commerce web application designed to provide an online shopping experience. Users can browse products, add desired items to a shopping cart, and proceed to place orders. The application features robust user authentication and authorization capabilities, allowing both standard users and administrators to manage their respective functionalities within the store.![flow](https://github.com/user-attachments/assets/8ced722b-a7df-4894-9495-fe3f2589456a)
+![flow](https://github.com/user-attachments/assets/66e4cd00-859d-49b0-b8da-0033a9d60a6a)
