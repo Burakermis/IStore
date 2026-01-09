@@ -77,15 +77,6 @@ npm run dev
 
 ---
 
-## 📌 Future Improvements
-
-* Payment system integration
-* Product reviews and ratings
-* Advanced search and filtering
-* Docker & CI/CD support
-
----
-
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome.
