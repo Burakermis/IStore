@@ -49,15 +49,11 @@ The overall request flow and system interactions are illustrated in the diagram 
 
 ## 🧰 Tech Stack
 
-> *(You can customize this section based on your implementation)*
-
-* **Backend:** Java / Spring Boot
-* **Frontend:** React
-* **Database:** PostgreSQL / MySQL
-* **Authentication:** JWT-based security
-* **API Documentation:** Swagger / OpenAPI
-
----
+* **Backend:** C# / ASP.NET MVC  
+* **Frontend:** HTML5, CSS3, JavaScript  
+* **Database:** SQL Server  
+* **Authentication:** ASP.NET Identity (Cookie-based authentication)  
+* **ORM:** Entity Framework  
 
 ## ⚙️ Setup & Installation
 
